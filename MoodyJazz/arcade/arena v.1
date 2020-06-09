@@ -1,0 +1,503 @@
+{
+	"Mod": {
+		"name": "arena",
+		"author": "rice",
+		"description": "Sat, 06 Jun 2020 23:23:34 GMT",
+		"titleLeft": "arena",
+		"titleRight": "",
+		"subtitleLeft": "",
+		"subtitleRight": ""
+	},
+	"Matchmaking": {
+		"MaxPlayers": 10,
+		"NumGamesToMaxBotDifficulty": 1,
+		"EnableSingles": false,
+		"EnableSplitting": false,
+		"EnableTeams": false,
+		"BotRating": 2800
+	},
+	"World": {
+		"InitialRadius": 0.46,
+		"SecondsToShrink": 900000000,
+		"BotName": "Gladiator",
+		"DefaultGameStartMessage": "Game has begun! Stay on the outer ring if you do not want to participate in the arena."
+	},
+	"ObstacleTemplates": {
+		"default": {
+			"health": 160
+		},
+		"defaultstatic": {
+			"health": 50,
+			"strike": {
+				"ticks": 6,
+				"flash": true,
+				"growth": 0.005
+			},
+			"render": [
+				{
+					"type": "solid",
+					"color": "#0008",
+					"shadow": true,
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "bloom",
+					"color": "#fff8",
+					"strikeOnly": true,
+					"bloom": 0.05
+				},
+				{
+					"type": "solid",
+					"color": "#0008",
+					"flash": false,
+					"expand": 0.003
+				},
+				{
+					"type": "solid",
+					"color": "#bbb",
+					"deadColor": "#c33",
+					"gradient": 0.2,
+					"tint": 1
+				},
+				{
+					"type": "solid",
+					"color": "#777",
+					"deadColor": "#822",
+					"gradient": 0.3,
+					"expand": -0.003,
+					"tint": 1
+				}
+			],
+			"static": true,
+			"undamageable": true
+		}
+	},
+	"Choices": {
+		"Options": {
+			"a": [
+				[
+					"thrust"
+				],
+				[
+					"teleport",
+					"swap"
+				],
+				[
+					"voidRush",
+					"vanish"
+				],
+				[
+					"spectator1"
+				]
+			],
+			"q": [
+				[
+					"fireball",
+					"flamestrike"
+				],
+				[
+					"triplet",
+					"difire"
+				],
+				[
+					"retractor",
+					"backlash"
+				],
+				[
+					"whip"
+				],
+				[
+					"spectator2"
+				]
+			],
+			"w": [
+				[
+					"boost"
+				],
+				[
+					"homing",
+					"boomerang",
+					"drain"
+				],
+				[
+					"gravity",
+					"whirlwind"
+				],
+				[
+					"link",
+					"grapple"
+				],
+				[
+					"lightning"
+				],
+				[
+					"spectator3"
+				]
+			],
+			"e": [
+				[
+					"armor",
+					"horcrux"
+				],
+				[
+					"shield",
+					"icewall"
+				],
+				[
+					"saber",
+					"dualSaber"
+				],
+				[
+					"phaseOut",
+					"blaze"
+				],
+				[
+					"meteor",
+					"meteorite"
+				],
+				[
+					"spectator4"
+				]
+			],
+			"r": [
+				[
+					"empower"
+				],
+				[
+					"supernova",
+					"rocket"
+				],
+				[
+					"bouncer",
+					"repeater"
+				],
+				[
+					"kamehameha",
+					"blast"
+				],
+				[
+					"spectator5"
+				]
+			],
+			"f": [
+				[
+					"bump",
+					"scourge"
+				],
+				[
+					"firespray",
+					"iceBomb"
+				],
+				[
+					"mines"
+				],
+				[
+					"halo"
+				],
+				[
+					"spectator6"
+				]
+			]
+		}
+	},
+	"Spells": {
+		"homing": {
+			"projectile": {
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"revolutionsPerSecond": 1,
+						"maxTurnProportion": 0.05
+					}
+				]
+			}
+		},
+		"drain": {
+			"projectile": {
+				"behaviours": [
+					{
+						"type": "homing",
+						"targetType": "follow",
+						"trigger": {
+							"atCursor": true
+						},
+						"newSpeed": 0.15,
+						"redirect": true
+					}
+				]
+			}
+		},
+		"spectator1": {
+			"id": "spectator1",
+			"name": "Spectator",
+			"description": "Passive ability. Every atom in your body is imbued with inner strength.",
+			"effects": [
+				{
+					"icon": "fas fa-shield",
+					"title": "Resistant",
+					"text": "Reduce damage received by 15%. Applies to all forms of damage, including void damage."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"spectator2": {
+			"id": "spectator2",
+			"name": "Spectator",
+			"description": "Passive ability. Every atom in your body is imbued with inner strength.",
+			"effects": [
+				{
+					"icon": "fas fa-shield",
+					"title": "Resistant",
+					"text": "Reduce damage received by 15%. Applies to all forms of damage, including void damage."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"spectator3": {
+			"id": "spectator3",
+			"name": "Spectator",
+			"description": "Passive ability. Every atom in your body is imbued with inner strength.",
+			"effects": [
+				{
+					"icon": "fas fa-shield",
+					"title": "Resistant",
+					"text": "Reduce damage received by 15%. Applies to all forms of damage, including void damage."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"spectator4": {
+			"id": "spectator4",
+			"name": "Spectator",
+			"description": "Passive ability. Every atom in your body is imbued with inner strength.",
+			"effects": [
+				{
+					"icon": "fas fa-shield",
+					"title": "Resistant",
+					"text": "Reduce damage received by 15%. Applies to all forms of damage, including void damage."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"spectator5": {
+			"id": "spectator5",
+			"name": "Spectator",
+			"description": "Passive ability. Every atom in your body is imbued with inner strength.",
+			"effects": [
+				{
+					"icon": "fas fa-shield",
+					"title": "Resistant",
+					"text": "Reduce damage received by 15%. Applies to all forms of damage, including void damage."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#8800ff",
+			"action": "buff"
+		},
+		"spectator6": {
+			"id": "spectator6",
+			"name": "Spectator",
+			"description": "Passive ability. Every atom in your body is imbued with inner strength.",
+			"effects": [
+				{
+					"icon": "fas fa-shield",
+					"title": "Resistant",
+					"text": "Reduce damage received by 15%. Applies to all forms of damage, including void damage."
+				}
+			],
+			"passive": true,
+			"untargeted": true,
+			"cooldown": 1,
+			"buffs": [
+				{
+					"type": "armor",
+					"passive": true,
+					"proportion": -0.15
+				}
+			],
+			"icon": "wingedShield",
+			"color": "#8800ff",
+			"action": "buff"
+		}
+	},
+	"Layouts": {
+		"circle": {
+			"$delete": true
+		},
+		"cold": {
+			"$delete": true
+		},
+		"octogon": {
+			"$delete": true
+		},
+		"return": {
+			"$delete": true
+		},
+		"double": {
+			"$delete": true
+		},
+		"ring": {
+			"$delete": true
+		},
+		"exit": {
+			"$delete": true
+		},
+		"heal": {
+			"$delete": true
+		},
+		"snowflake": {
+			"$delete": true
+		},
+		"inside5": {
+			"$delete": true
+		},
+		"single": {
+			"$delete": true
+		},
+		"pepper": {
+			"$delete": true
+		},
+		"mirrors": {
+			"$delete": true
+		},
+		"innerStar": {
+			"$delete": true
+		},
+		"mirrorhenge": {
+			"$delete": true
+		},
+		"spiral": {
+			"$delete": true
+		},
+		"triplet": {
+			"$delete": true
+		},
+		"square": {
+			"$delete": true
+		},
+		"surrounded": {
+			"$delete": true
+		},
+		"tripletSwirl": {
+			"$delete": true
+		},
+		"arena": {
+			"color": "#413243",
+			"background": "#2a1b2c",
+			"numPoints": 6,
+			"obstacles": [
+				{
+					"type": "defaultstatic",
+					"layoutRadius": 0.4,
+					"extent": 0.0055,
+					"numObstacles": 6,
+					"numPoints": 3,
+					"layoutAngleOffsetInRevs": 0.25,
+					"angularWidthInRevs": 0.164
+				},
+				{
+					"type": "defaultstatic",
+					"layoutRadius": 0.35,
+					"extent": 0.0055,
+					"numObstacles": 6,
+					"numPoints": 3,
+					"layoutAngleOffsetInRevs": 0.25,
+					"angularWidthInRevs": 0.134
+				},
+				{
+					"numObstacles": 6,
+					"layoutRadius": 0.03,
+					"layoutAngleOffsetInRevs": 0,
+					"numPoints": 3,
+					"extent": 0.017,
+					"orientationAngleOffsetInRevs": 0.1666667
+				},
+				{
+					"type": "fast",
+					"layoutRadius": 0.1325,
+					"extent": 0.0025,
+					"numObstacles": 10,
+					"layoutAngleOffsetInRevs": 0,
+					"angularWidthInRevs": 0.1
+				},
+				{
+					"type": "slow",
+					"layoutRadius": 0.38,
+					"numPoints": 4,
+					"extent": 0.0025,
+					"numObstacles": 6,
+					"layoutAngleOffsetInRevs": 0.5,
+					"angularWidthInRevs": 0.04
+				},
+				{
+					"numObstacles": 6,
+					"layoutRadius": 0.32,
+					"layoutAngleOffsetInRevs": 0.08333333333,
+					"numPoints": 4,
+					"extent": 0.01,
+					"orientationAngleOffsetInRevs": 0
+				}
+			]
+		}
+	}
+}
